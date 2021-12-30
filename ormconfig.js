@@ -1,5 +1,4 @@
 
-
 module.exports = {
   type: "postgres",
   host: "localhost",

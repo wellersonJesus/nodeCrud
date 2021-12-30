@@ -1,18 +1,29 @@
+import { Request, Response } from "express";
+//import { CreateCategoryService } from "../services/CreateCategorySevice";
+import { CreateCategoryService } from "../services/CreateCategoryService";
 
-    import { request, Request, Response } from "express";
-    import { CreateCategoryService } from "../services/CreateCategoryService";
+//CONFERIR ESTA PARTE ESTAVA COM ERROR
 
-    export class CreateCategoryController {
-        async handle(request:Request, response: Response ) {
-            const { name, description } = request.body;
+export class CreateCategoryController {
 
-            const service = new CreateCategoryService();
-            const result = await service.execute({ name, description });
+    async handle(req: Request, res: Response) {
 
-            if (result instanceof Error) {
-                return response.status(400).json(result.message);
-            }
+        const { name, description } = req.body
 
-            return response.json(result);
+        //Validations
+        if (!name) {
+            res.status(422).json({ message: "Required name field!" })
         }
+        if (!description) {
+            res.status(422).json({ message: "Required description field" })
+        }
+
+
+        const service = new CreateCategoryService()
+
+        const result = await service.execute({ name, description })
+
+        return res.json(result)
     }
+
+}

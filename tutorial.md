@@ -1,3 +1,8 @@
+***dATAbASES***
+|database|user|loginPostgres
+---|---|---|
+node_crud|postgres|admin123
+
 ***cOMANDOS***
 
         yarn init -y |criar projeto
