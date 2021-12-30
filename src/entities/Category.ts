@@ -17,9 +17,9 @@ import { v4 as uuid } from "uuid"
      @CreateDateColumn()
      created_at: Date;
 
-     constructir() {
+     constructor() {
          if(!this.id){
-             this.id = uuid()
+             this.id = uuid();
          }
      }
  }

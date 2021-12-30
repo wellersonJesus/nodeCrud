@@ -59,7 +59,7 @@
         }
         }
 
-***mIGRATIONS-cATEGORIES.TS***
+***mIGRATIONS-cATEGORIES.TS 26:55***
 
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
@@ -88,10 +88,10 @@ export class CreateCategories1640786790698 implements MigrationInterface {
                     name: "created_at",
                     type: "timestamp",
                     default: "now()"
-                },
-            ],
+                }
+            ]
         })
-    );
+    )
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
@@ -99,7 +99,7 @@ export class CreateCategories1640786790698 implements MigrationInterface {
 }
 }
 
-***mIGRATIONS-vIDEOS.TS***
+***mIGRATIONS-vIDEOS.TS 31:50***
 
 import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
@@ -152,34 +152,34 @@ export class CreateVideos1640804905953 implements MigrationInterface {
     }
 }
 
-***eNTITIES cATEGORY.TS***
+***eNTITIES cATEGORY.TS 38:23***
 
-        import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm" 
-        import { v4 as uuid } from "uuid"
+    import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm" 
+    import { v4 as uuid } from "uuid"
 
 
-        @Entity("categories")
-        export class Category {
+    @Entity("categories")
+    export class Category {
 
-            @PrimaryColumn()
-            id: string;
+        @PrimaryColumn()
+        id: string;
 
-            @Column()
-            name: string;
-            
-            @Column()
-            description: string;
-            
-            @CreateDateColumn()
-            created_at: Date;
+        @Column()
+        name: string;
+        
+        @Column()
+        description: string;
+        
+        @CreateDateColumn()
+        created_at: Date;
 
-            constructir() {
-                if(!this.id){
-                    this.id = uuid()
-                }
+        constructor() {
+            if(!this.id){
+                this.id = uuid();
             }
         }
-
+    }
+   
 ***sERVICES.TS***
 
     import "reflect-metadata"
@@ -196,48 +196,48 @@ export class CreateVideos1640804905953 implements MigrationInterface {
 
 ***eNTITIES vIDEO.TS***
 
-        import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm"
-        import { v4 as uuid } from "uuid"
-        import { Category } from "./Category";
+    import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm"
+    import { v4 as uuid } from "uuid"
+    import { Category } from "./Category";
 
-        @Entity("videos")
-        export class Video {
+    @Entity("videos")
+    export class Video {
 
-            @PrimaryColumn()
-            id: string;
+    @PrimaryColumn()
+    id: string;
 
-            @Column()
-            name: string;
-            
-            @Column()
-            description: string;
+    @Column()
+    name: string;
+    
+    @Column()
+    description: string;
 
-            @Column()
-            duration: number;
+    @Column()
+    duration: number;
 
-            @Column()
-            category_id: string;
-            
-            @ManyToOne(() => Category)
-            @JoinColumn({name: "category_id" })
-            category: Category;
+    @Column()
+    category_id: string;
+    
+    @ManyToOne(() => Category)
+    @JoinColumn({ name: "category_id" })
+    category: Category;
 
-            @CreateDateColumn()
-            created_at: Date;
+    @CreateDateColumn()
+    created_at: Date;
 
-            constructir() {
-                if(!this.id){
-                    this.id = uuid()
-                }
-            }
+    constructor() {
+        if(!this.id){
+            this.id = uuid();
         }
+    }
+}
 
 ***iNDEX.TS***
 
         import { createConnection } from "typeorm";
             createConnection(); 
 
-***cREATEcATEGORYsERVICE.TS***
+***cREATEcATEGORYsERVICE.TS 43:30***
 
      import { getRepository } from "typeorm"
      import { Category } from "../../entities/Category";
@@ -302,4 +302,9 @@ export class CreateVideos1640804905953 implements MigrationInterface {
 
         export { routes };
 
-        42:58 ... Continuar
+
+---
+.
+.
+.
+_51:50 ... Continuar_

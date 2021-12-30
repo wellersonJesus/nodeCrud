@@ -21,15 +21,15 @@ export class Video {
     category_id: string;
     
     @ManyToOne(() => Category)
-    @JoinColumn({name: "category_id" })
+    @JoinColumn({ name: "category_id" })
     category: Category;
 
     @CreateDateColumn()
     created_at: Date;
 
-    constructir() {
+    constructor() {
         if(!this.id){
-            this.id = uuid()
+            this.id = uuid();
         }
     }
 }

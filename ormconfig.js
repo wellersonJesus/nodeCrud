@@ -8,6 +8,11 @@ module.exports = {
   password: "admin123",
   database: "node_crud",
 
+  ///TypeORM corrigir QueryFailedError
+  synchronize: true,
+  migrationsRun: true,
+
+
   //ENTIDADES ...
   entities: [
     "./src/entities/*.ts"
@@ -16,7 +21,7 @@ module.exports = {
   entitiesDir: [
     "./src/entities"
 
-    //MIGRATIONS
+  //MIGRATIONS ...
   ],
   migrations: [
     "./src/database/migration/*.ts"
