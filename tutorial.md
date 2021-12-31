@@ -5,24 +5,10 @@
 ***[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch?v=9AO2hZJsHrs). Tutorial projeto crud node.js para estudo e base novos projetos...***
 
 
-- [tsconfi.json]()
+***tSCONFIG.JSON***
 
-        "target": es2021"
-        "strict": false,
-
-        yarn add typeorm reflect-metadata pg
-        yarn typeorm
-
-        yarn add uuid | Instala bibliotecas uuid
-        yarn add @types/uuid -D | Instala as tipagens
-
-        yarn typeorm migration:run | roda migrations  
-        yarn typeorm migration:revert | desfaz a ultima migrations  
-        yarn dev |start servidor
-
-        yarn typeorm migration:create -n CreateCategories
-        yarn typeorm migration:create -n CreateVideos
-        yarn |Cria arquivo node_modules
+            "target": es2021"
+            "strict": false,
 
 ***oRMcONFIG.TS***
 
@@ -39,205 +25,205 @@
             migrationsRun: true,
 
 
-  //ENTIDADES ...
-  entities: [
-    "./src/entities/*.ts"
+***eNTITIES***
 
-  ],
-  entitiesDir: [
-    "./src/entities"
+        entities: [
+            "./src/entities/*.ts"
 
-  //MIGRATIONS ...
-  ],
-  migrations: [
-    "./src/database/migration/*.ts"
-  ],
-  cli: {
-    migrationsDir: "src/database/migration"
-  }
-}
+        ],
+        entitiesDir: [
+            "./src/entities"
+
+    //MIGRATIONS ...
+        ],
+        migrations: [
+            "./src/database/migration/*.ts"
+        ],
+        cli: {
+            migrationsDir: "src/database/migration"
+        }
+        }
 
 ***mIGRATIONS-cATEGORIES.TS 26:55***
 
-    import {MigrationInterface, QueryRunner, Table} from "typeorm";
+            import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-    export class CreateCategories1640181264943 implements MigrationInterface {
+            export class CreateCategories1640181264943 implements MigrationInterface {
 
-        public async up(queryRunner: QueryRunner): Promise<void> {
-            await queryRunner.createTable(
-                new Table({
-                    name:"categories",
-                    columns:[
-                        {
-                            name:"id",
-                            type:"uuid",
-                            isPrimary:true
-                        },
-                        {
-                            name:"name",
-                            type:"varchar",
-                            isUnique:true
-                        },
-                        {
-                            name:"description",
-                            type:"varchar",
-                        },
-                        {
-                            name:"created_at",
-                            type:"timestamp",
-                            default:"now()"
-                        }
-                    ]
-                })
-            )
-        }
+                public async up(queryRunner: QueryRunner): Promise<void> {
+                    await queryRunner.createTable(
+                        new Table({
+                            name:"categories",
+                            columns:[
+                                {
+                                    name:"id",
+                                    type:"uuid",
+                                    isPrimary:true
+                                },
+                                {
+                                    name:"name",
+                                    type:"varchar",
+                                    isUnique:true
+                                },
+                                {
+                                    name:"description",
+                                    type:"varchar",
+                                },
+                                {
+                                    name:"created_at",
+                                    type:"timestamp",
+                                    default:"now()"
+                                }
+                            ]
+                        })
+                    )
+                }
 
-        public async down(queryRunner: QueryRunner): Promise<void> {
-            await queryRunner.dropTable("categories")
-        }
+                public async down(queryRunner: QueryRunner): Promise<void> {
+                    await queryRunner.dropTable("categories")
+                }
 
-    }
+            }
 
 ***mIGRATIONS-vIDEOS.TS 31:50***
 
-import {MigrationInterface, QueryRunner, Table} from "typeorm";
+            import {MigrationInterface, QueryRunner, Table} from "typeorm";
 
-export class CreateVideos1640182098935 implements MigrationInterface {
+            export class CreateVideos1640182098935 implements MigrationInterface {
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.createTable(
-            new Table({
-                name:"videos",
-                columns:[
+                public async up(queryRunner: QueryRunner): Promise<void> {
+                    await queryRunner.createTable(
+                        new Table({
+                            name:"videos",
+                            columns:[
 
-                    {
-                        name:"id",
-                        type:"uuid",
-                        isPrimary:true
-                    },
-                    {
-                        name:"name",
-                        type:"varchar",
-                        isUnique:true
-                    },
-                    {
-                        name:"description",
-                        type:"varchar",
-                    },
+                                {
+                                    name:"id",
+                                    type:"uuid",
+                                    isPrimary:true
+                                },
+                                {
+                                    name:"name",
+                                    type:"varchar",
+                                    isUnique:true
+                                },
+                                {
+                                    name:"description",
+                                    type:"varchar",
+                                },
 
-                    {
-                        name:"category_id",
-                        type:"uuid"
-                    },
+                                {
+                                    name:"category_id",
+                                    type:"uuid"
+                                },
 
-                    {
-                        name:"duration",
-                        type:"numeric"
-                    },
+                                {
+                                    name:"duration",
+                                    type:"numeric"
+                                },
 
-                    {
-                        name:"created_at",
-                        type:"timestamp",
-                        default:"now()"
-                    }
-                ],
-                foreignKeys:[
-                    {
-                        name:"fk_videos_category",
-                        columnNames:["category_id"],
-                        referencedTableName:"categories",
-                        referencedColumnNames:["id"]
-                    }
-                ]
-            })
-        )
-    }
+                                {
+                                    name:"created_at",
+                                    type:"timestamp",
+                                    default:"now()"
+                                }
+                            ],
+                            foreignKeys:[
+                                {
+                                    name:"fk_videos_category",
+                                    columnNames:["category_id"],
+                                    referencedTableName:"categories",
+                                    referencedColumnNames:["id"]
+                                }
+                            ]
+                        })
+                    )
+                }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
-        await queryRunner.dropTable("videos")
-    }
+                public async down(queryRunner: QueryRunner): Promise<void> {
+                    await queryRunner.dropTable("videos")
+                }
 
-}
+            }
 
 ***eNTITIES cATEGORY.TS 38:23***
 
-    import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm" 
-    import { v4 as uuid } from "uuid"
+            import { Entity, Column, CreateDateColumn, PrimaryColumn } from "typeorm" 
+            import { v4 as uuid } from "uuid"
 
+            @Entity("categories")
+            export class Category {
 
-    @Entity("categories")
-    export class Category {
+                @PrimaryColumn()
+                id: string;
 
-        @PrimaryColumn()
-        id: string;
+                @Column()
+                name: string;
+                
+                @Column()
+                description: string;
+                
+                @CreateDateColumn()
+                created_at: Date;
 
-        @Column()
-        name: string;
-        
-        @Column()
-        description: string;
-        
-        @CreateDateColumn()
-        created_at: Date;
-
-        constructor() {
-            if(!this.id){
-                this.id = uuid();
+                constructor() {
+                    if(!this.id){
+                        this.id = uuid();
+                    }
+                }
             }
-        }
-    }
    
 ***sERVICES.TS***
 
-    import "reflect-metadata"
-    import express from "express";
-    import "./database";
-    import { routes } from "../router";
+            import "reflect-metadata"
+            import express from "express";
+            import "./database";
+            import { routes } from "../router";
 
-    const app = express();
+            const app = express();
 
-    app.use(express.json());
-    app.use(routes);
+            app.use(express.json());
+            app.use(routes);
 
-    app.listen(3000, () => console.log("Server is running"));
+            app.listen(3000, () => console.log("Server is running"));
 
 ***eNTITIES vIDEO.TS***
 
-    import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm"
-    import { v4 as uuid } from "uuid"
-    import { Category } from "./Category";
+            import { Entity, Column, CreateDateColumn, PrimaryColumn, ManyToOne, JoinColumn } from "typeorm"
+            import { v4 as uuid } from "uuid"
+            import { Category } from "./Category";
 
-    @Entity("videos")
-    export class Video {
+            @Entity("videos")
+            export class Video {
 
-    @PrimaryColumn()
-    id: string;
+            @PrimaryColumn()
+            id: string;
 
-    @Column()
-    name: string;
-    
-    @Column()
-    description: string;
+            @Column()
+            name: string;
+            
+            @Column()
+            description: string;
 
-    @Column()
-    duration: number;
+            @Column()
+            duration: number;
 
-    @Column()
-    category_id: string;
-    
-    @ManyToOne(() => Category)
-    @JoinColumn({ name: "category_id" })
-    category: Category;
+            @Column()
+            category_id: string;
+            
+            @ManyToOne(() => Category)
+            @JoinColumn({ name: "category_id" })
+            category: Category;
 
-    @CreateDateColumn()
-    created_at: Date;
+            @CreateDateColumn()
+            created_at: Date;
 
-    constructor() {
-        if(!this.id){
-            this.id = uuid();
+            constructor() {
+                if(!this.id){
+                    this.id = uuid();
+                }
+            }
         }
-    }
-}
 
 ***iNDEX.TS***
 
@@ -246,37 +232,37 @@ export class CreateVideos1640182098935 implements MigrationInterface {
 
 ***cREATEcATEGORYsERVICE.TS***
 
-     import { getRepository } from "typeorm"
-     import { Category } from "../../entities/Category";
+        import { getRepository } from "typeorm"
+        import { Category } from "../../entities/Category";
 
-        type CategoryRequest = {
-            name: string;
-            description: string;
-        }
-
-        export class CreateCategoryService {
-
-            async execute({ 
-                name, 
-                description,
-            }: CategoryRequest): Promise<Category | Error> {
-                const repo = getRepository(Category);
-                
-                //SELECT * FROM CATEGORIES WHERE NAME = "NAME"  LIMIT 1
-                if (await repo.findOne({ name })) {
-                    return new Error("Category already exists");
-                }
-
-                const category = repo.create({
-                    name,
-                    description,
-                });
-
-                await repo.save(category);
-
-                return category;
+            type CategoryRequest = {
+                name: string;
+                description: string;
             }
-        }
+
+            export class CreateCategoryService {
+
+                async execute({ 
+                    name, 
+                    description,
+                }: CategoryRequest): Promise<Category | Error> {
+                    const repo = getRepository(Category);
+                    
+                    //SELECT * FROM CATEGORIES WHERE NAME = "NAME"  LIMIT 1
+                    if (await repo.findOne({ name })) {
+                        return new Error("Category already exists");
+                    }
+
+                    const category = repo.create({
+                        name,
+                        description,
+                    });
+
+                    await repo.save(category);
+
+                    return category;
+                }
+            }
 
 ***cREATEcATEGORYcONTROLLER.TS***
 
@@ -300,14 +286,12 @@ export class CreateVideos1640182098935 implements MigrationInterface {
                         res.status(422).json({ message: "Required description field" })
                     }
 
-
                     const service = new CreateCategoryService()
 
                     const result = await service.execute({ name, description })
 
                     return res.json(result)
                 }
-
             }
 
 ***rOUTES.TS***
@@ -406,47 +390,103 @@ export class CreateVideos1640182098935 implements MigrationInterface {
 
 ***uPDATEcATEGORIAsERVICE.TS 1:01:00***
 
-        import { getRepository } from "typeorm";
-        import { Category } from "../entities/Category";
+            import { getRepository } from "typeorm";
+            import { Category } from "../entities/Category";
 
-        type CategoryUpdateRequest = {
-            id: string;
-            name: string;
-            description: string;
-        };
+            type CategoryUpdateRequest = {
+                id: string;
+                name: string;
+                description: string;
+            };
 
-        export class UpdateCategoryService {
-            async execute({ id, name, description }: CategoryUpdateRequest) {
-                const repo = getRepository(Category);
+            export class UpdateCategoryService {
+                async execute({ id, name, description }: CategoryUpdateRequest) {
+                    const repo = getRepository(Category);
 
-                const category = await repo.findOne(id);
+                    const category = await repo.findOne(id);
 
-                if (!category) {
-                    return new Error("Category does not exists!");
+                    if (!category) {
+                        return new Error("Category does not exists!");
+                    }
+
+                    category.name = name ? name : category.name;
+                    category.description = description ? description : category.description;
+
+                    await repo.save(category);
+
+                    return category;
                 }
-
-                category.name = name ? name : category.name;
-                category.description = description ? description : category.description;
-
-                await repo.save(category);
-
-                return category;
             }
-        }
 
 ***uPDATEcATEGORYcONTROLLER.TS 1:05:00***
 
-        import { Request, Response } from "express"
-        import { UpdateCategoryService } from "../services/UpdateCategoryService"
+            import { Request, Response } from "express"
+            import { UpdateCategoryService } from "../services/UpdateCategoryService"
 
-        export class UpdateCategoryController {
-            async handle(request: Request, response: Response) {
-                const { id } = request.params;
-                const { name, description } = request.body;
+            export class UpdateCategoryController {
+                async handle(request: Request, response: Response) {
+                    const { id } = request.params;
+                    const { name, description } = request.body;
 
-                const service = new UpdateCategoryService();
+                    const service = new UpdateCategoryService();
 
-                const result = await service.execute({id, name, description });
+                    const result = await service.execute({id, name, description });
+
+                    if (result instanceof Error) {
+                        return response.status(400).json(result.message);
+                    }
+
+                    return response.json(result);
+                }
+            }
+
+***cREATEvIDEOsEREVICE.TS 1:11:00***
+
+            import { getRepository} from "typeorm";
+            import { Category } from "../entities/Category";
+            import { Video } from "../entities/Video";
+
+            type VideoRequest = {
+                name: string;
+                description: string;
+                duration: number;
+                category_id: string;
+            };
+
+            export class CreateVideoService {
+                async execute({ name, description, duration, category_id }: VideoRequest): Promise<Error | Video > {
+                    const repo = getRepository(Video);
+                    const repoCategory = getRepository(Category);
+
+                    if (!(await repoCategory.findOne(category_id))) {
+                        return new Error("Category does not existis!");
+                    }
+
+                    const video = repo.create({ name, description, duration, category_id });
+
+                    await repo.save(video);
+
+                    return video;
+                }
+            }
+
+***cREATEvIDEOcONTROLLER.TS 1:14:00***
+
+            import { Request, Response  } from "express";
+            import { CreateVideoService } from "../services/CreateVideoService";
+
+            export class CreateVideoController {
+                async handle(request: Request, response: Response) {
+                    const { name, description, category_id, duration } = request.body:
+
+                    const service = new CreateVideoService();
+
+                    const result = await service.execute({
+                        name,
+                        description,
+                        category_id,
+                        duration,
+                });
 
                 if (result instanceof Error) {
                     return response.status(400).json(result.message);
@@ -454,63 +494,7 @@ export class CreateVideos1640182098935 implements MigrationInterface {
 
                 return response.json(result);
             }
-        }
-
-***cREATEvIDEOsEREVICE.TS 1:11:00***
-
-        import { getRepository} from "typeorm";
-        import { Category } from "../entities/Category";
-        import { Video } from "../entities/Video";
-
-        type VideoRequest = {
-            name: string;
-            description: string;
-            duration: number;
-            category_id: string;
-        };
-
-        export class CreateVideoService {
-            async execute({ name, description, duration, category_id }: VideoRequest): Promise<Error | Video > {
-                const repo = getRepository(Video);
-                const repoCategory = getRepository(Category);
-
-                if (!(await repoCategory.findOne(category_id))) {
-                    return new Error("Category does not existis!");
-                }
-
-                const video = repo.create({ name, description, duration, category_id });
-
-                await repo.save(video);
-
-                return video;
             }
-        }
-
-***cREATEvIDEOcONTROLLER.TS 1:14:00***
-
-        import { Request, Response  } from "express";
-        import { CreateVideoService } from "../services/CreateVideoService";
-
-        export class CreateVideoController {
-            async handle(request: Request, response: Response) {
-                const { name, description, category_id, duration } = request.body:
-
-                const service = new CreateVideoService();
-
-                const result = await service.execute({
-                    name,
-                    description,
-                    category_id,
-                    duration,
-            });
-
-            if (result instanceof Error) {
-                return response.status(400).json(result.message);
-            }
-
-            return response.json(result);
-        }
-        }
 
 ---
 .

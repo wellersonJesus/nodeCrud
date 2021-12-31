@@ -10,8 +10,6 @@
 node_crud|postgres|admin123
 
 
-***cOMANDOS NODE.JS***
-
 - _iNSTALAÇÃO NODE.JS_
     
         node -v
@@ -29,7 +27,7 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
         which node
         which npm
 
-- ***cOMANDOS yARN***
+- ***yARN***
 
         yarn init -y |criar projeto
 
@@ -54,11 +52,6 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
         yarn typeorm migration:revert | desfaz a ultima migrations  
 
         yarn dev |start servidor
-
-- ***tSCONFIG.JSON***
-
-        "target": es2021"
-        "strict": false,
 
 - ***mIGRATIOSN***
 
