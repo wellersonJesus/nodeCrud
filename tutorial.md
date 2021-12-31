@@ -528,7 +528,5 @@ _[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch
                 }
             }
 
-.
-.
-.
+-
 _... Tudo é possível_
