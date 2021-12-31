@@ -1,19 +1,9 @@
-***dATAbASES***
-|database|user|loginPostgres
----|---|---|
-node_crud|postgres|admin123
 
-***cOMANDOS***
+**CRUD NODE.JS**
+-
 
-        yarn init -y |criar projeto
+***[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch?v=9AO2hZJsHrs). Tutorial projeto crud node.js para estudo e base novos projetos...***
 
-        sudo apt install yarn 
-        yarn -v |1.22.17
-        yarn init -y |criar arquivo projeto
-        yarn add express |adiciona dependencias
-        yarn add typescript ts-node-dev @types/express -D |adiciona dependencias 
-
-        yarn tsc --init |inicia aplicação
 
 - [tsconfi.json]()
 
