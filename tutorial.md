@@ -528,8 +528,7 @@ _[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch
                 }
             }
 
-***gETaLLvIDEOScONTROLLER.TS 1:19:00***
 .
 .
 .
-_1:17:00 ... Continuar_
+_... Tudo é possível_
