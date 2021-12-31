@@ -71,9 +71,9 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
         sudo netstat -lpn |grep :'3000'
         kill -9 1192
 
-- [nODEMON](https://medium.com/@jccamargo15/iniciando-com-nodejs-aula-1-instala%C3%A7%C3%A3o-yarn-e-nodemon-4818d923e9be) 
+- ***[nODEMON](https://medium.com/@jccamargo15/iniciando-com-nodejs-aula-1-instala%C3%A7%C3%A3o-yarn-e-nodemon-4818d923e9be)*** 
 
-Esse trecho indica ao yarn que criamos um novo script chamado “start” e quando chamado ele deve executar o nodemon a partir do arquivo principal a aplicação que neste caso é “[index.js]()”.
+_Esse trecho indica ao yarn que criamos um novo script chamado “start” e quando chamado ele deve executar o nodemon a partir do arquivo principal a aplicação que neste caso é “[index.js]()”._
 
 - ***pOSTGRES***
 

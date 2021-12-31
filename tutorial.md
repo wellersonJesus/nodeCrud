@@ -24,7 +24,6 @@
             synchronize: true,
             migrationsRun: true,
 
-
 ***eNTITIES***
 
         entities: [
