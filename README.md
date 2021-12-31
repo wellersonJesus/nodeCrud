@@ -1,7 +1,7 @@
 **CRUD NODE.JS**
-
-[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch?v=9AO2hZJsHrs). Teste e validações node.js 
 -
+
+_[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch?v=9AO2hZJsHrs). Teste e validações node.js_
 
 
 ***dATAbASES***
