@@ -3,7 +3,7 @@ import { CreateVideoService } from "../services/CreateVideoService";
 
 export class CreateVideoController {
     async handle(request: Request, response: Response) {
-        const { name, description, category_id, duration } = request.body:
+        const { name, description, category_id, duration } = request.body;
 
         const service = new CreateVideoService();
 

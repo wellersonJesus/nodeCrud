@@ -294,28 +294,32 @@ _[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch
 
 ***rOUTES.TS***
 
-        /***
-        * [x] C - create - Post
-        * [x] R - Read - Get
-        * [x] U - Update - Put
-        * [x] C - Delete - Delete 
-        * 
-        */
             import { Router } from "express";
             import { CreateCategoryController } from "./src/Controllers/CreateCategoryController";
             import { CreateVideoController } from "./src/Controllers/CreateVideoController";
             import { DeleteCategoryController } from "./src/Controllers/DelereCategoryController";
+            import { GetAllVideosController } from "./src/Controllers/GetAllVideosController";
             import { GetAllCategoriesController } from "./src/Controllers/GetCategoryController";
             import { UpdateCategoryController } from "./src/Controllers/UpdateCategoryController";
+            import { GetAllVideosService } from "./src/services/GetAllVideosService";
 
             const routes = Router();
 
+            /***
+            * [x] C - create - Post
+            * [x] R - Read - Get
+            * [x] U - Update - Put
+            * [x] C - Delete - Delete 
+            * 
+            */
+
             routes.post("/categories", new CreateCategoryController().handle);
             routes.get("/categories", new GetAllCategoriesController().handle);
-            routes.delete("/categories/:id", new DeleteCategoryController().handle)
+            routes.delete("/categories/:id", new DeleteCategoryController().handle);
             routes.put("/categories/:id", new UpdateCategoryController().handle);
 
             routes.post("/videos", new CreateVideoController().handle);
+            routes.get("/videos", new GetAllVideosController().handle);
 
             export { routes };
 
@@ -475,7 +479,7 @@ _[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch
 
             export class CreateVideoController {
                 async handle(request: Request, response: Response) {
-                    const { name, description, category_id, duration } = request.body:
+                    const { name, description, category_id, duration } = request.body;
 
                     const service = new CreateVideoService();
 
@@ -493,8 +497,38 @@ _[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch
                 return response.json(result);
             }
             }
+***gETaLLvIDEOSsERVICE.TS 1:18:00***
 
----
+            import { getRepository } from "typeorm";
+            import { Video } from "../entities/Video";
+
+            export class GetAllVideosService {
+                async execute() {
+                    const repo = getRepository(Video);
+
+                    const videos = await repo.find({
+                        relations: ["category"],
+                    });
+
+                    return videos;
+                }
+            }
+
+***gETaLLvIDEOScONTROLLER.TS 1:19:00***
+
+            import { Request, Response } from "express";
+            import { GetAllVideosService } from "../services/GetAllVideosService";
+
+            export class GetAllVideosController {
+                async handle(request: Request, response: Response) {
+                    const service = new GetAllVideosService();
+
+                    const videos = await service.execute();
+                    return response.json(videos);
+                }
+            }
+
+***gETaLLvIDEOScONTROLLER.TS 1:19:00***
 .
 .
 .
