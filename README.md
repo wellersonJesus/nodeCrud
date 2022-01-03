@@ -24,15 +24,14 @@ node_crud|postgres|admin123
 Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós, se tiver. Então faça um
 
         sudo apt update
-        which node
-        which npm
+        which node |mostra caminho node
+        which npm |
 
 - ***yARN***
 
-        yarn init -y |criar projeto
-
         sudo apt install yarn |instalar 
         yarn -v |1.22.17 |mostrar versão
+        
         yarn init -y |criar arquivo projeto
         yarn add express |adiciona dependencias
         yarn add typescript ts-node-dev @types/express -D |adiciona dependencias 
