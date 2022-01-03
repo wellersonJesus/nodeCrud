@@ -39,7 +39,8 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
         yarn tsc --init |inicia aplicação
 
         yarn add typeorm reflect-metadata pg
-        yarn typeorm
+        yarn add typeorm |adiciona pacote typeorm
+        yarn typeorm |chama typeorm
 
         yarn add uuid | instala bibliotecas uuid
         yarn add @types/uuid -D | Instala as tipagens
