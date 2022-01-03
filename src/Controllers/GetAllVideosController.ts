@@ -6,6 +6,6 @@ export class GetAllVideosController {
         const service = new GetAllVideosService();
 
         const videos = await service.execute();
-        return response.json(videos);
+        return response.json(videos)
     }
 }
