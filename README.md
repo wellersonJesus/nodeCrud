@@ -56,7 +56,9 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
 
         rm -rf node_modules
         Yarn cache clean
-        yarn typeorm migration:create -n CreateCategories
+
+        yarn typeorm migration:create -n CreateCategories ou 
+        typeorm migration:generate -n PostRefactoring
 
         yarn typeorm migration:run
 
