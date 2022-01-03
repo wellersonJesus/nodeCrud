@@ -25,7 +25,7 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
 
         sudo apt update
         which node |mostra caminho node
-        which npm |
+        which npm |mostra caminho npm
 
 - ***yARN***
 
