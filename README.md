@@ -32,6 +32,9 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
         sudo apt install yarn |instalar 
         yarn -v |1.22.17 |mostrar versão
         
+        yarn install |instala modulos node
+        npm install |instala dependencias npm
+        
         yarn init -y |criar arquivo projeto
         yarn add express |adiciona dependencias
         yarn add typescript ts-node-dev @types/express -D |adiciona dependencias 
