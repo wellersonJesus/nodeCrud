@@ -7,7 +7,7 @@ _[CRUD com Node.JS, Express, TypeORM e PostgreSQL](https://www.youtube.com/watch
 ***dATAbASES***
 |database|user|loginPostgres
 ---|---|---|
-node_crud|postgres|admin123
+nodeCrud|postgres|123
 
 
 - _iNSTALAÇÃO NODE.JS_
