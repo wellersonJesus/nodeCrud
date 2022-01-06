@@ -51,8 +51,8 @@ Em seguida, vá para [/etc/apt/sources.list.de]() remova qualquer lista de nós,
         yarn add nodemon -D |loop servidor 
         yarn start | startar
 
-        yarn typeorm migration:run | roda migrations  
-        yarn typeorm migration:revert | desfaz a ultima migrations  
+        yarn typeorm migration:run |roda migrations  
+        yarn typeorm migration:revert |desfaz a ultima migrations  
 
         yarn dev |start servidor
 

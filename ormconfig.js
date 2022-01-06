@@ -4,8 +4,8 @@ module.exports = {
   host: "localhost",
   port: 5432,
   username: "postgres",
-  password: "admin123",
-  database: "node_crud",
+  password: "123",
+  database: "nodeCrud",
 
   ///TypeORM corrigir QueryFailedError
   synchronize: true,
